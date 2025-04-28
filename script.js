@@ -24,6 +24,19 @@ function formatCurrencyBRL(value) {
   return value
 }
 
+// Catch submit event of the form to get the values
 form.onsubmit = (event) => {
-  event.preventDefault()
+  event.preventDefault() // reload page off
+
+  // Create a new object with de detaild on the new expense
+  const newExpense = {
+    id: new Date().getTime(),
+    expense: expense.value,
+    category_id: category.value,
+    category_name: category.options[category.selectedIndex].text,
+    amount: amount.value,
+    created_at: new Date(),
+  }
+  console.log(newExpense)
 }
+
