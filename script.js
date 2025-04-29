@@ -103,7 +103,18 @@ function updateTotals() {
   try {
     // Retrieves all items (li) from the list (ul)
     const items = expenseList.children
-    expensesQuantity.textContent = `${items.length} ${items.length > 1 ? "despesas" : "despesa"}`
+    expensesQuantity.textContent = `${items.length} ${items.length > 1 ? "Despesas" : "Despesa"}`
+
+    // variable to increment the total
+    let total = 0
+
+    // Iterate through each item in the list
+    for(let item = 0; item < items.length; item++) {
+      const itemAmount =  items[item].querySelector(".expense-amount")
+
+      console.log(itemAmount)
+    }
+
 
   } catch (error) {
     console.log(error)
