@@ -4,6 +4,9 @@ const amount = document.getElementById("amount")
 const expense = document.getElementById("expense")
 const category = document.getElementById("category")
 
+// Select the list elements
+const expenseList = document.querySelector("ul")
+
 // Validation Only Numbers
 amount.oninput = () => {
   let value = amount.value.replace(/\D/g, "")
@@ -47,6 +50,17 @@ function expenseAdd(newExpense) {
     // creates the element to add the item to the list
     const expenseItem = document.createElement("li")
     expenseItem.classList.add("expense")
+
+    // create the category icon
+    const expenseIcon = document.createElement("img")
+    expenseIcon.setAttribute("src", `img/${newExpense.category_id}.svg`)
+    expenseIcon.setAttribute("alt", newExpense.category_name)
+
+    // add the informations of the item
+    expenseItem.append(expenseIcon)
+
+    // add the item to the list
+    expenseList.append(expenseItem)
 
   } catch (error) {
     alert("Unable to update expense list.")
