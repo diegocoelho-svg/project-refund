@@ -6,6 +6,7 @@ const category = document.getElementById("category")
 
 // Select the list elements
 const expenseList = document.querySelector("ul")
+const expensesTotal = document.querySelector("aside header h2")
 const expensesQuantity = document.querySelector("aside header p span")
 
 // Validation Only Numbers
@@ -112,10 +113,22 @@ function updateTotals() {
     for(let item = 0; item < items.length; item++) {
       const itemAmount =  items[item].querySelector(".expense-amount")
 
-      console.log(itemAmount)
+      // Remove non-numeric characters and replace comma with period
+      let value = itemAmount.textContent.replace(/[^\d]/g, "").replace(",", ".")
+
+      // Convert the value to float
+      value = parseFloat(value)
+
+      // Verified if is a valid number
+      if(isNaN(value)) {
+        return alert("Unable to calculate total. Value does not appear to be a number")
+      }
+
+      // Increment the total value
+      total += Number(value)
     }
-
-
+    
+    expensesTotal.textContent = total
   } catch (error) {
     console.log(error)
     alert("Unable to update totals.")
