@@ -38,13 +38,16 @@ form.onsubmit = (event) => {
     created_at: new Date(),
   }
 
-  // call the function that will add the item on the list
+  // call the function that will add the item to the list
   expenseAdd(newExpense)
 }
 
 function expenseAdd(newExpense) {
   try {
-    throw new Error("Erro de teste")
+    // creates the element to add the item to the list
+    const expenseItem = document.createElement("li")
+    expenseItem.classList.add("expense")
+
   } catch (error) {
     alert("Unable to update expense list.")
     console.log(error)
