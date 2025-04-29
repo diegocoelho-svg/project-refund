@@ -146,3 +146,11 @@ function updateTotals() {
   }
 }
 
+// Event that captures clicks on the list
+expenseList.addEventListener("click", function (event) {
+  // verified if the clicked element is the remove icon
+  if(event.target.classList.contains("remove-icon")) {
+    
+  }
+})
+
