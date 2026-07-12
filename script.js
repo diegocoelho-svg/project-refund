@@ -128,4 +128,3 @@ function formClear() {
 
   expense.focus()
 }
-
